@@ -16,6 +16,8 @@ public class Time
       */ 
      public Time()
      {
+    	hour = 12;
+    	minute = 0;
      }
      
      /*
@@ -25,7 +27,14 @@ public class Time
       */ 
      public Time(int h, int m)
      {
-       
+       if (h >= 1 && h <= 23)
+    	   hour = h;
+       else
+    	   hour = 0;
+       if (m >= 0 && h <= 59)
+    	   minute = m;
+       else
+    	   minute = 0;
      }
      
      /* Returns the time as a String of length 4 in the format: 0819. 
@@ -34,8 +43,15 @@ public class Time
      */
      public String toString()
      {
-       
-       return "";
+       if ((hour >= 0 && hour <= 9) && !(minute >= 0 && minute <=9))
+    	   return "0" + hour + minute;
+       else if (!(hour >= 0 && hour <= 9) && (minute >= 0 && minute <=9))
+    	   return hour + "0" + minute;
+       else if ((hour >= 0 && hour <= 9) && (minute >= 0 && minute <=9))
+    	   return "0" + hour + "0" + minute;
+       else
+    	   return "" + hour + minute;
+    	   
      }
      
      /*
@@ -45,7 +61,27 @@ public class Time
       */ 
      public String convert()
      {
-       return "";
+    	 if (hour >= 13 && hour <= 23)
+    	 {
+    		 if (minute >=0 && minute <= 9)
+    			 return "" + (hour-12) + ":" + "0" + minute + " pm";
+    		 else
+    			 return "" + (hour-12) + ":" + minute + " pm";
+    	 }
+    	 else if (hour == 0)
+    	 {
+    		 if (minute >=0 && minute <= 9)
+    			 return "" + "12" + ":" + "0" + minute + " am";
+    		 else
+    			 return "" + "12" + ":" + minute + " am";
+    	 }
+    	 else
+    	 {
+    		 if (minute >=0 && minute <= 9)
+    			 return "" + hour + ":" + "0" + minute + " am";
+    		 else
+    			 return "" + hour + ":" + minute + " am";
+    	 }
      }
      
     /*
@@ -56,7 +92,18 @@ public class Time
      */ 
     public void increment()
     {
-      
+    	if (hour == 23 && minute == 59)
+    	{
+    		hour = 0;
+    		minute = 0;
+    	}
+    	else if (minute == 59)
+    	{
+    		hour++;
+    		minute = 0;
+    	}
+    	else
+    		minute++;
     }
       
 }
