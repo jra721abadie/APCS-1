@@ -27,7 +27,7 @@ public class Time
       */ 
      public Time(int h, int m)
      {
-       if (h >= 1 && h <= 23)
+       if (h >= 0 && h <= 23)
     	   hour = h;
        else
     	   hour = 0;
@@ -46,7 +46,7 @@ public class Time
        if ((hour >= 0 && hour <= 9) && !(minute >= 0 && minute <=9))
     	   return "0" + hour + minute;
        else if (!(hour >= 0 && hour <= 9) && (minute >= 0 && minute <=9))
-    	   return hour + "0" + minute;
+    	   return "" + hour + "0" + minute;
        else if ((hour >= 0 && hour <= 9) && (minute >= 0 && minute <=9))
     	   return "0" + hour + "0" + minute;
        else
@@ -74,6 +74,13 @@ public class Time
     			 return "" + "12" + ":" + "0" + minute + " am";
     		 else
     			 return "" + "12" + ":" + minute + " am";
+    	 }
+    	 else if (hour == 12)
+    	 {
+    		 if (minute >=0 && minute <= 9)
+    			 return "" + "12" + ":" + "0" + minute + " pm";
+    		 else
+    			 return "" + "12" + ":" + minute + " pm";
     	 }
     	 else
     	 {
