@@ -15,7 +15,8 @@ public class Strand
 	// turned on white bulb, that is not burnt out.
 	public Strand()
 	{
-		/* missing code */
+		strand.clear();
+		strand.add(new Light());
 	}
 
 	// A constructor that sets strand to an ArrayList of size n, holding
@@ -24,7 +25,15 @@ public class Strand
 	// and not burnt out.
 	public Strand(int n)
 	{
-		/* missing code */
+		if (n > 0)
+			for (int i = 0; i < n; i++)
+				strand.add(new Light());
+		else
+		{
+			strand.clear();
+			strand.add(new Light());
+		}
+		
 	}
 
 	// This method returns a String representation of the
@@ -42,41 +51,53 @@ public class Strand
 	// color, and a tab before the "burnt out" or "not burnt out".
 	public String toString()
 	{
-		/* missing code (don't forget to update the return statement) */
+		String s = null;
+		for (Light l: strand)
+		{
+			
+		}
 		return "";
 	}
 
 	// This method sets the color of all the light bulbs in the entire Strand.
 	public void setColor(String c)
 	{
-
-		/* missing code */
+		for (Light l: strand)
+			l.setColor(c);
 	}
 
 	// This method sets the light bulbs to the pattern "red", "green", "blue",
 	// "red", "green", "blue",... until the end of the strand.
 	public void setMulti()
 	{
-		/* missing code */
+		
 	}
 
 	// This method turns on all the lights in the strand. Each individual bulb
 	// can only be turned on if it's burntOut variable is false.
 	public void turnOn()
 	{
-		/* missing code */
+		for (Light l: strand)
+		{
+			if (l.isOn() == false)
+				l.flip();
+		}
 	}
 
 	// This method turns off all the lights in the strand.
 	public void turnOff()
 	{
-		/* missing code */
+		for (Light l: strand)
+		{
+			if (l.isOn() == true)
+				l.flip();
+		}
 	}
 
 	// This method sets the Light at location i’s burntOut variable to true.
 	public void burnOut(int i)
 	{
-		/* missing code */
+		.burnOut();
 	}
 
 	public static void main(String[] args)
