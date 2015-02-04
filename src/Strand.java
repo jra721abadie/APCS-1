@@ -51,12 +51,12 @@ public class Strand
 	// color, and a tab before the "burnt out" or "not burnt out".
 	public String toString()
 	{
-		String s = null;
+		String s = "";
 		for (Light l: strand)
 		{
-			
+			s = s + l.toString() + "\n";
 		}
-		return "";
+		return s;
 	}
 
 	// This method sets the color of all the light bulbs in the entire Strand.
@@ -70,7 +70,16 @@ public class Strand
 	// "red", "green", "blue",... until the end of the strand.
 	public void setMulti()
 	{
-		
+		for (int i = 0; i < strand.size(); i++)
+		{
+			int remainder = i % 3;
+			if (remainder == 0)
+				strand.get(i).setColor("red");
+			else if (remainder == 1)
+				strand.get(i).setColor("green");
+			else if (remainder == 2)
+				strand.get(i).setColor("blue");
+		}
 	}
 
 	// This method turns on all the lights in the strand. Each individual bulb
@@ -97,7 +106,7 @@ public class Strand
 	// This method sets the Light at location i’s burntOut variable to true.
 	public void burnOut(int i)
 	{
-		.burnOut();
+		strand.get(i).burnOut();
 	}
 
 	public static void main(String[] args)
