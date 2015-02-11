@@ -13,7 +13,7 @@ public class Student extends Person {
 		else
 			level = 0;
 		count++;
-		level = count;
+		studentId = count;
 	}
 	
 	public int getLevel() {
@@ -21,7 +21,7 @@ public class Student extends Person {
 	}
 	
 	public String toString() {
-		String s = ""; 
+		String s = ; 
 		return s;
 	}
 
