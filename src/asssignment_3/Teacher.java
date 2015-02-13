@@ -10,7 +10,8 @@ public class Teacher extends Person {
 	}
 	
 	public String toString() {
-		return "";
+		String s = "" + super.toString() + "\n \t Subject: " + subject;
+		return s;
 		
 	}
 

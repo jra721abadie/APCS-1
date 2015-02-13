@@ -13,7 +13,8 @@ public class HighSchoolStudent extends Student{
 	}
 	
 	public String toString() {
-		return "";
+		String s = "" + super.toString() + "\n \t GPA: " + gpa;
+		return s;
 	}
 	
 

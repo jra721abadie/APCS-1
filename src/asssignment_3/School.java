@@ -1,5 +1,7 @@
 package asssignment_3;
+
 import java.util.ArrayList;
+
 
 public class School {
 
@@ -14,5 +16,18 @@ public class School {
 		return null;
 	}
 	
+	public String toString() {
+		String r = "Faculty: \n";
+		for (Teacher t: teachers)
+		{
+			r = r + t.toString() + "\n";
+		}
+		r = r + "\n Student Body: \n";
+		for (Student s: students)
+		{
+			r = r + s.toString() + "\n";
+		}
+		return r;
+	}
 	
 }

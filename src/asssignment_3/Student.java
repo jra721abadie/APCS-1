@@ -21,7 +21,7 @@ public class Student extends Person {
 	}
 	
 	public String toString() {
-		String s = ; 
+		String s = super.toString() + "\n \t Grade Level: " + level + "\n \t ID #: " + studentId; 
 		return s;
 	}
 
