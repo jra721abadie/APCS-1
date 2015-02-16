@@ -9,11 +9,18 @@ public class School {
 	private ArrayList<Teacher> teachers;
 	
 	public School(ArrayList<Student> students, ArrayList<Teacher> teachers) {
-		
+		this.students = students;
+		this.teachers = teachers;
 	}
 	
 	public String getGradeLevel(int level) {
-		return null;
+		String r = "";
+		for (Student s: students)
+		{
+			if (s.getLevel() == level)
+				r = r + s.toString() + "\n";
+		}
+		return r;
 	}
 	
 	public String toString() {
