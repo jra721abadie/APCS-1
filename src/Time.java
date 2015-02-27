@@ -3,8 +3,9 @@
  * Term 2 - Assignment 1: Time
  * A class which represents the time of day in hours and seconds.
  */
+import java.lang.Math;
 
-public class Time
+public class Time implements Comparable
 {
      private int hour;
      private int minute;     
@@ -112,5 +113,38 @@ public class Time
     	else
     		minute++;
     }
-      
+    
+    public int compareTo(Object other)
+    {
+		Time t = (Time) other;
+    	if (this.hour < t.hour)
+			return -1;
+    	else if (this.hour > t.hour)
+    		return 1;
+    	else
+    	{
+    		if (this.minute < t.minute)
+    			return -1;
+    		else if (this.minute > t.minute)
+    			return 1;
+    		else
+    			return 0;
+    	}
+    }
+
+	public String difference(Time t) {
+		String s = "null";
+		int h = Math.abs(this.hour - t.hour);
+		int m = Math.abs(this.minute - t.minute);
+		if ((h >= 0 && h <= 9) && !(m >= 0 && m <=9))
+			s = "0" + h + ":" + m;
+	    else if (!(h >= 0 && h <= 9) && (m >= 0 && m <=9))
+	    	s = "" + h + ":" +  "0" + m;
+	    else if ((h >= 0 && h <= 9) && (m >= 0 && m <=9))
+	    	s = "0" + h + ":" + "0" + m;
+	    else
+	    	s = "" + h + ":" + m;
+		return s;
+	}
+    
 }

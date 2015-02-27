@@ -1,66 +1,44 @@
 /*
  * AP CS MOOC
- * Term 2 - Assignment 1: Time
- * Use this runner program to test your Assignment 1 solution.
+ * Term 2 - Assignment 4: Time Comparable
+ * Use this runner file to test your Assignment 4 solution
  */
 
 import java.io.IOException;
-
-
+import java.util.Scanner;
 
 class student_time_runner
 {
 
- public static void main(String str[]) throws IOException
- {
+	public static void main(String str[]) throws IOException
+	{
 
-  Time time1 = new Time(14, 56);
-  System.out.println("time1: " + time1);
-  System.out.println("convert time1 to standard time: " + time1.convert());
-  System.out.println("time1: " + time1);
-  System.out.print("increment time1 five times: ");
-  time1.increment();
-  time1.increment();
-  time1.increment();
-  time1.increment();
-  time1.increment();
-  System.out.println(time1 + "\n");
+		Scanner scan = new Scanner(System.in);
 
-  Time time2 = new Time(-7, 12);
-  System.out.println("time2: " + time2);
-  System.out.print("increment time2 67 times: ");
-  for (int i = 0; i < 67; i++)
-   time2.increment();
-  System.out.println(time2);
-  System.out.println("convert to time2 standard time: " + time2.convert());
-  System.out.println("time2: " + time2 + "\n");
+		// time 1
+		Time t1 = new Time(17, 12);
+		System.out.println(t1);
 
-  
-  Time time3 = new Time(5, 17);
-  System.out.println("time3: " + time3);
-  System.out.print("convert time3: ");
-  System.out.println(time3.convert());
-  
-  Time time4 = new Time(12, 15);
-  System.out.println("\ntime4: " + time4);
-  System.out.println("convert time4: " + time4.convert());
+		Time t2 = new Time(9, 45);
+		System.out.println(t2);
+		System.out.println("Greater Than:");
+		System.out.println(t1.compareTo(t2));
+		System.out.println("Less Than:");
+		System.out.println(t2.compareTo(t1));
+		System.out.println("Times equal:");
+		Time t3 = new Time(9, 45);
+		System.out.println(t3.compareTo(t2));
+		System.out.println("Hours equal:");
+		Time t4 = new Time(8, 45);
+		Time t5 = new Time(8, 34);
+		System.out.println(t4.compareTo(t5));
+		System.out.println(t5.compareTo(t4));
+		System.out.println("Difference");
+		System.out.println(t4.difference(t5));
+		System.out.println(t5.difference(t4));
+		System.out.println(t4.difference(t4));
+		System.out.println(t1.difference(t2));
+	}// main
 
-  Time time5 = new Time(0, 15);
-  System.out.println("\ntime5: " + time5);
-  System.out.println("convert time5: " + time5.convert());
-  
-  Time time6 = new Time(24, 15);
-  System.out.println("\ntime6: " + time6);
-  System.out.println("convert time6: " + time6.convert());
-  
-  Time time7 = new Time(23,59);
-  System.out.println("\ntime7: " + time7);
-  System.out.println("convert time7: " + time7.convert());
-  time7.increment();
-  System.out.println("increment time7: " + time7);
-  System.out.println("convert time7: " + time7.convert());
-  
- }
-
-}
+}// class
 
