@@ -135,7 +135,21 @@ public class Time implements Comparable
 	public String difference(Time t) {
 		String s = "null";
 		int h = Math.abs(this.hour - t.hour);
-		int m = Math.abs(this.minute - t.minute);
+		int m = 0;
+		if (h > 0)
+		{
+			if (this.minute >= t.minute)
+				m = this.minute - t.minute;
+			else if (this.minute < t.minute)
+				m = (60 - t.minute) + this.minute;
+		}
+		else if (h == 0)
+		{
+			if (this.minute >= t.minute)
+				m = this.minute - t.minute;
+			else if (this.minute < t.minute)
+				m = t.minute - this.minute;
+		}
 		if ((h >= 0 && h <= 9) && !(m >= 0 && m <=9))
 			s = "0" + h + ":" + m;
 	    else if (!(h >= 0 && h <= 9) && (m >= 0 && m <=9))
