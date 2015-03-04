@@ -3,7 +3,7 @@
  * Term 2 - Assignment 1: Time
  * A class which represents the time of day in hours and seconds.
  */
-import java.lang.Math;
+
 
 public class Time implements Comparable
 {
@@ -134,21 +134,52 @@ public class Time implements Comparable
 
 	public String difference(Time t) {
 		String s = "null";
-		int h = Math.abs(this.hour - t.hour);
+		int h = 0;
 		int m = 0;
-		if (h > 0)
+		if (this.compareTo(t) == 0)
 		{
-			if (this.minute >= t.minute)
-				m = this.minute - t.minute;
-			else if (this.minute < t.minute)
-				m = (60 - t.minute) + this.minute;
+			m = 0;
+			h = 0;
 		}
-		else if (h == 0)
+		else if (this.compareTo(t) == 1)
 		{
-			if (this.minute >= t.minute)
+			h = this.hour - t.hour;
+			if (h > 0)
+			{
+				if (this.minute == t.minute)
+					m = 0;
+				else if (this.minute < t.minute)
+				{
+					m = this.minute + (60 - t.minute);
+					h--;
+				}
+				else if (this.minute > t.minute)
+					m = this.minute - t.minute;
+			}
+			else
+			{
 				m = this.minute - t.minute;
-			else if (this.minute < t.minute)
+			}
+		}
+		else if (this.compareTo(t) == -1)
+		{
+			h = t.hour - this.hour;
+			if (h > 0)
+			{
+				if (t.minute == this.minute)
+					m = 0;
+				else if (t.minute < this.minute)
+				{
+					m = t.minute + (60 - this.minute);
+					h--;
+				}
+				else if (t.minute > this.minute)
+					m = t.minute - this.minute;
+			}
+			else
+			{
 				m = t.minute - this.minute;
+			}
 		}
 		if ((h >= 0 && h <= 9) && !(m >= 0 && m <=9))
 			s = "0" + h + ":" + m;
