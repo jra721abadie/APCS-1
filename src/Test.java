@@ -9,6 +9,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in);
-		System.out.print(21/5);
+		WhatsIt a = new WhatsIt();
+		System.out.println(a);
     }
 }
