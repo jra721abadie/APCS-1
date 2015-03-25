@@ -87,10 +87,27 @@ public class Deck
      public  ArrayList <Card> shuffleDeck ()
      {
           
-          ArrayList <Card> t = new ArrayList <Card> ();
-          
-          //your code here
-          return t;
+    	ArrayList <Card> t = new ArrayList <Card> ();
+ 		int[] indexes = new int[deck.size()];
+ 		for (int i = 0; i< indexes.length; i++){
+ 			indexes[i] = i;
+ 		}
+ 		for (int i = 0; i<deck.size(); i++){
+ 			int randIndex = 0;
+ 			boolean isvalid = false;
+ 			while(!isvalid){
+ 				randIndex = (int)(Math.random()*deck.size());
+
+ 				for(int n = 0; n<indexes.length; n++){
+ 					if(indexes[n] == randIndex)
+ 						isvalid = true;
+ 				}
+ 			}
+ 			t.add(i, deck.get(randIndex));
+ 			indexes[randIndex] = -1;
+ 		}
+
+ 		return t;
           
           
           
