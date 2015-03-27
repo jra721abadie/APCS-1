@@ -1,5 +1,4 @@
 package assignment_5;
-import java.lang.Math;
 import java.util.ArrayList;
 public class Main {
 
