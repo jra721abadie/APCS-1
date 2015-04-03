@@ -9,7 +9,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in);
-		WhatsIt a = new WhatsIt();
-		System.out.println(a);
+		String s = "Testtest";
+		System.out.println(s.substring(0, 1) + " " + s.substring(1));
     }
 }
