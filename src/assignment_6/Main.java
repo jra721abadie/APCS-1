@@ -12,8 +12,8 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner (System.in);
         ArrayList <String> list = new ArrayList<String> ();
-		String input = null;
-		while (input.toLowerCase() != "stop")
+		String input = "null";
+		while (!(input.equals("Stop")))
 		{
 			System.out.println("Enter the next name:");
 			input = scan.nextLine();
@@ -21,7 +21,7 @@ public class Main {
 			list.add(input);
 		}
 		list.remove(list.size()-1);
-		System.out.println(list);
+		System.out.println(sort(list));
     }
 	
 	public static String titleCase(String s)
@@ -31,9 +31,20 @@ public class Main {
 	
 	public static ArrayList<String> sort(ArrayList<String> in)
 	{
-		ArrayList<String> out = new ArrayList<String>();
-		int pointer = 0;
-		
-		return out;
+		for (int i = 0; i < in.size(); i ++)
+        {
+			String key = in.get(i);
+			for (int j = i+1; j < in.size(); j ++)
+			{
+				if (key.compareTo(in.get(j)) > 0)
+				{
+					String temp = in.get(j);
+					in.set(j,key);
+					in.set(i,temp);
+					key = temp;
+				}
+			}
+        }
+		return in;
 	}
 }
