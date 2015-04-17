@@ -11,25 +11,47 @@ public class Bitmap {
 			}
 		}
 		//Set * at coordinates from a
-		for (int i = 0; i < a.length; i+=2) {
-			image[a[i]][a[i+1]] = "*";
+		if (a.length % 2 == 0) {
+			for (int i = 0; i < a.length; i+=2) {
+				if (a[i] >= 0 && a[i] < 10 && a[i+1] >= 0 && a[i+1] < 10) {
+					image[a[i]][a[i+1]] = "*";
+				}
+				else {
+					for (int k = 0; k < image.length; k++) {
+						for (int l = 0; l < image[k].length; l++) {
+							image[k][l] = "-";
+						}
+					}
+				}
+			}
+		}
+		else {
+			for (int i = 0; i < image.length; i++) {
+				for (int j = 0; j < image[i].length; j++) {
+					image[i][j] = "-";
+				}
+			}
 		}
 	}
 	
 	public void flipHorizontal() {
-		String[] temp;
-		for (int i = 0; i < image.length; i++) {
-			temp = image[i];
-			for (int j = 0; j < image[i].length; j++) {
-				
+		for (int j = 0; j < image.length; j++)
+		{
+			for (int i = 0; i < image[j].length / 2; i++)
+			{
+				String temp = image[j][i];
+				image[j][i] = image[j][image.length - i - 1];
+				image[j][image.length - i - 1] = temp;
 			}
 		}
 	}
 	
 	public void flipVertical() {
-		String[][] temp = image;
-		for (int i = 0; i < image.length; i++) {
-			image[i] = temp[temp.length-1-i];
+		for (int i = 0; i < image.length / 2; i++)
+		{
+		    String[] temp = image[i];
+		    image[i] = image[image.length - i - 1];
+		    image[image.length - i - 1] = temp;
 		}
 	}
 	
